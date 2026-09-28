@@ -28,3 +28,34 @@ export async function POST(request) {
     console.log(error + "failed to create the note");
   }
 }
+
+export async function GET() {
+  try {
+    await connectDB();
+
+    const allNotes = await noteModel.find().sort({ createdAt: -1 });
+
+    return Response.json(
+      {
+        allNotes,
+        success: true,
+        message: "Got all the notes",
+      },
+      {
+        status: 200,
+      },
+    );
+  } catch (error) {
+    console.log(error);
+
+    return Response.json(
+      {
+        success: false,
+        message: "Could not get the notes",
+      },
+      {
+        status: 500,
+      },
+    );
+  }
+}

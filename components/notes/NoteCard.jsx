@@ -1,8 +1,8 @@
 import { Trash2, Pencil } from "lucide-react";
 
-const NoteCard = ({ title, content }) => {
+const NoteCard = ({ title, content, time }) => {
   return (
-    <div className="w-full max-w-sm rounded-2xl border border-slate-400  bg-gray-500 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+    <>
       <div className="flex items-start justify-between gap-4">
         <h2 className="text-xl font-bold line-clamp-1">{title}</h2>
         <div className="flex shrink-0 gap-2">
@@ -23,11 +23,11 @@ const NoteCard = ({ title, content }) => {
           </button>
         </div>
       </div>
-      <p className="mt-3 line-clamp-4 text-sm leading-6 ">{content}</p>
-      <div className="mt-5 border-t border-slate-100 pt-3">
-        <span className="text-xs ">Just now</span>
+      <p className="mt-3 line-clamp-4 text-sm leading-6 min-h-20">{content}</p>
+      <div className=" border-t border-slate-100 pt-3">
+        <span className="text-xs ">{time}</span>
       </div>
-    </div>
+    </>
   );
 };
 
