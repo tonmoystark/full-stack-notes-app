@@ -1,6 +1,10 @@
+"use client";
 import { Trash2, Pencil } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 
 const NoteCard = ({ title, content, time, id, allNotesFunc }) => {
+  const router = useRouter();
   const deleteNote = async (id) => {
     try {
       const res = await fetch(`/api/notes/${id}`, {
@@ -14,6 +18,7 @@ const NoteCard = ({ title, content, time, id, allNotesFunc }) => {
       console.log("can not delete the note " + error);
     }
   };
+
   return (
     <>
       <div className="flex items-start justify-between gap-4">
@@ -23,6 +28,7 @@ const NoteCard = ({ title, content, time, id, allNotesFunc }) => {
             type="button"
             className="rounded-lg p-2  transition hover:bg-slate-100 hover:text-blue-600"
             title="Edit note"
+            onClick={() => router.push(`/editNote/${id}`)}
           >
             <Pencil size={18} />
           </button>
