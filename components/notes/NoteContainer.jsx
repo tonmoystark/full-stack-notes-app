@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import NoteCard from "./NoteCard";
-import { Key } from "lucide-react";
 
 const NoteContainer = () => {
   const [notes, setNotes] = useState([]);
@@ -26,6 +25,8 @@ const NoteContainer = () => {
             <NoteCard
               title={note.title}
               content={note.content}
+              id={note._id}
+              allNotesFunc={allNotes}
               time={new Date(note.createdAt).toLocaleString("en-GB", {
                 day: "2-digit",
                 month: "short",

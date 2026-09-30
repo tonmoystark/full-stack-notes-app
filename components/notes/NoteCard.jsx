@@ -1,6 +1,19 @@
 import { Trash2, Pencil } from "lucide-react";
 
-const NoteCard = ({ title, content, time }) => {
+const NoteCard = ({ title, content, time, id, allNotesFunc }) => {
+  const deleteNote = async (id) => {
+    try {
+      const res = await fetch(`/api/notes/${id}`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        allNotesFunc();
+      }
+    } catch (error) {
+      console.log("can not delete the note " + error);
+    }
+  };
   return (
     <>
       <div className="flex items-start justify-between gap-4">
@@ -18,6 +31,7 @@ const NoteCard = ({ title, content, time }) => {
             type="button"
             className="rounded-lg p-2 transition hover:bg-red-50 hover:text-red-600"
             title="Delete note"
+            onClick={() => deleteNote(id)}
           >
             <Trash2 size={18} />
           </button>
