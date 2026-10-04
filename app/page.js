@@ -9,6 +9,7 @@ export default async function Home() {
       <div className=" w-full">
         <h1 className="text-3xl font-bold text-center my-10">Notes App</h1>
         <NoteContainer />
+        <h1 className="text-3xl font-bold text-center my-10">Profiles App</h1>
       </div>
     </div>
   );
