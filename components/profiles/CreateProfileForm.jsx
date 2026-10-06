@@ -6,9 +6,46 @@ const CreateProfileForm = () => {
   const [age, setAge] = useState("");
   const [occupation, setOccupation] = useState("");
   const [message, setMessage] = useState("");
+  const [inputMessage, setinputMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const submitHandler = async (e) => {};
+  const showMessage = (text) => {
+    setinputMessage(text);
+    setTimeout(() => {
+      setinputMessage("");
+    }, 3000);
+  };
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (!name || !age || !occupation || !message) {
+      showMessage("Please fill all the inputs");
+      return;
+    }
+    try {
+      setLoading(true);
+      const res = await fetch("/api/profiles", {
+        headers: {
+          "content-type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({ name, age, occupation, message }),
+      });
+      if (res.ok) {
+        showMessage("Profile created successfully");
+        setName("");
+        setAge("");
+        setOccupation("");
+        setMessage("");
+        console.log(name, age, occupation, message);
+      }
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error + "could not build the profile");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen bg-slate-950 p-6 flex items-center justify-center">
       <div className="w-full max-w-2xl">
@@ -103,7 +140,7 @@ const CreateProfileForm = () => {
                 className="w-full resize-none rounded-lg border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition focus:border-green-500 focus:bg-slate-800 focus:ring-2 focus:ring-green-500/20"
               ></textarea>
 
-              {/* {statusMessage} */}
+              {inputMessage && <p className="text-red-500">{inputMessage}</p>}
             </div>
 
             {/* Button */}

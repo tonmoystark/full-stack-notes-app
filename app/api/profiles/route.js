@@ -1,9 +1,9 @@
-import { connectDB } from "@/lib/db";
+import { connectDBforProfile } from "@/lib/db";
 import { profileModel } from "@/lib/models/profiles.model";
 
 export async function POST(req) {
   try {
-    await connectDB();
+    await connectDBforProfile();
     const { name, age, occupation, message } = await req.json();
 
     if (!name || !age || !occupation || !message) {
@@ -42,7 +42,7 @@ export async function POST(req) {
 
 export async function GET() {
   try {
-    await connectDB();
+    await connectDBforProfile();
     const allProfiles = await profileModel.find().sort({ createdAt: -1 });
     return Response.json(
       {

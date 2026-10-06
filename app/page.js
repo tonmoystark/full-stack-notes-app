@@ -1,4 +1,5 @@
 import NoteContainer from "@/components/notes/NoteContainer";
+import ProfileContainer from "@/components/profiles/ProfileContainer";
 import { connectDB } from "@/lib/db";
 
 export default async function Home() {
@@ -10,6 +11,7 @@ export default async function Home() {
         <h1 className="text-3xl font-bold text-center my-10">Notes App</h1>
         <NoteContainer />
         <h1 className="text-3xl font-bold text-center my-10">Profiles App</h1>
+        <ProfileContainer />
       </div>
     </div>
   );
