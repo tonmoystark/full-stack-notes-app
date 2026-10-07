@@ -32,6 +32,7 @@ const ProfileContainer = () => {
           occupation={profile.occupation}
           message={profile.message}
           fetchProfiles={fetchProfiles}
+          createdAt={profile.createdAt}
         />
       ))}
     </div>

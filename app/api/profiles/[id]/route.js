@@ -1,8 +1,8 @@
-import { connectDBforProfile } from "@/lib/db";
+import { connectDB } from "@/lib/db";
 import { profileModel } from "@/lib/models/profiles.model";
 
 export async function DELETE(req, { params }) {
-  await connectDBforProfile();
+  await connectDB();
   const { id } = await params;
   try {
     await profileModel.findByIdAndDelete(id);
@@ -21,7 +21,7 @@ export async function DELETE(req, { params }) {
 
 export async function GET(req, { params }) {
   try {
-    await connectDBforProfile();
+    await connectDB();
     const { id } = await params;
     const profile = await profileModel.findById(id);
 
@@ -53,7 +53,7 @@ export async function GET(req, { params }) {
 
 export async function PUT(req, { params }) {
   try {
-    await connectDBforProfile();
+    await connectDB();
     const { id } = await params;
 
     const { name, age, occupation, message } = await req.json();
