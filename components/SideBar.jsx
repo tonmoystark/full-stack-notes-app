@@ -7,6 +7,7 @@ const SideBar = () => {
       name: "Home",
       href: "/",
     },
+    { name: "dashboard", href: "/dashboard" },
     {
       name: "Shops",
       href: "/shops",
