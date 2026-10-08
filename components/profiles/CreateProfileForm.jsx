@@ -47,8 +47,8 @@ const CreateProfileForm = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-slate-950 p-6 flex items-center justify-center">
-      <div className="w-full max-w-2xl">
+    <div className="min-h-fit w-full border border-green-800 bg-slate-950 p-6 flex items-center justify-center">
+      <div className="w-full">
         <div className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 p-8">
           {/* Header */}
           <div className="mb-8">

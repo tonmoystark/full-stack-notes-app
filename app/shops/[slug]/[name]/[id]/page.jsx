@@ -1,12 +1,13 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import React from "react";
 
 const ShopsSlugNameId = () => {
   const params = useParams();
-  console.log(params);
+  const pathName = usePathname();
+  console.log(pathName);
 
-  return <div>ShopsSlugNameId</div>;
+  return <div>ShopsSlugNameId {pathName}</div>;
 };
 
 export default ShopsSlugNameId;
