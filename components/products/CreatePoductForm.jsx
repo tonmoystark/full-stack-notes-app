@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "next/form";
+import { productForm } from "@/app/actions/practiceForm";
 
 export default function CreateProductForm() {
   return (
@@ -11,7 +12,7 @@ export default function CreateProductForm() {
           Add a new product to your inventory.
         </p>
 
-        <Form action={} className="mt-8 space-y-5">
+        <Form action={productForm} className="mt-8 space-y-5">
           <div>
             <label
               htmlFor="name"
