@@ -1,6 +1,5 @@
 import NoteContainer from "@/components/notes/NoteContainer";
 import ProfileContainer from "@/components/profiles/ProfileContainer";
-import SideBar from "@/components/SideBar";
 import { connectDB } from "@/lib/db";
 
 export default async function Home() {
