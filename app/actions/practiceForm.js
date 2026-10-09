@@ -9,11 +9,22 @@ export async function practiceForm(formData) {
 }
 
 export async function productForm(formData) {
-  connectDB();
+  await connectDB();
   const name = formData.get("name");
   const price = formData.get("price");
   const quantity = formData.get("quantity");
   const description = formData.get("description");
 
-  
+  try {
+    if (!name || !price || !quantity || !description) return;
+    const product = await productModel.create({
+      name,
+      price,
+      quantity,
+      description,
+    });
+    return product;
+  } catch (error) {
+    console.log(error);
+  }
 }
