@@ -1,6 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import localFont from "next/font/local";
+
+const isometra = localFont({
+  src: "../../public/fonts/Isometra-Regular.ttf",
+});
 
 const EditProfile = ({ id }) => {
   const [name, setName] = useState("");
@@ -59,7 +64,11 @@ const EditProfile = ({ id }) => {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-8 shadow-2xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white">Edit Your Profile</h1>
+            <h1
+              className={`text-3xl font-bold text-white ${isometra.className}`}
+            >
+              Edit Your Profile
+            </h1>
 
             <p className="mt-2 text-slate-400">
               Update your personal information.
@@ -151,7 +160,7 @@ const EditProfile = ({ id }) => {
             <button
               disabled={loading}
               type="submit"
-              className="w-full rounded-lg bg-green-600 py-3 font-semibold text-white shadow-sm transition hover:bg-green-500 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+              className={`w-full rounded-lg bg-green-600 py-3 font-semibold text-white shadow-sm transition hover:bg-green-500 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 ${isometra.className}`}
             >
               {loading ? "Updating Profile..." : "Update Profile"}
             </button>

@@ -1,5 +1,10 @@
 "use client";
 import React, { useState } from "react";
+import localFont from "next/font/local";
+
+const isometra = localFont({
+  src: "../../public/fonts/Isometra-Regular.ttf",
+});
 
 const CreateProfileForm = () => {
   const [name, setName] = useState("");
@@ -52,7 +57,9 @@ const CreateProfileForm = () => {
         <div className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white">
+            <h1
+              className={`text-3xl font-bold text-white ${isometra.className}`}
+            >
               Create Your Profile
             </h1>
             <p className="text-slate-400 mt-2">
@@ -147,7 +154,7 @@ const CreateProfileForm = () => {
             <button
               disabled={loading}
               type="submit"
-              className="w-full rounded-lg bg-green-600 py-3 font-semibold text-white shadow-sm transition hover:bg-green-500 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+              className={`w-full rounded-lg bg-green-600 py-3 font-semibold text-white shadow-sm transition hover:bg-green-500 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 ${isometra.className}`}
             >
               {loading ? "Creating Profile..." : "Create Profile"}
             </button>

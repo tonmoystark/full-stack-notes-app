@@ -1,6 +1,13 @@
 "use client";
+import { Roboto_Mono } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
+
 const SideBar = () => {
   const bars = [
     {
@@ -24,7 +31,9 @@ const SideBar = () => {
 
   const pathName = usePathname();
   return (
-    <div className="w-48 min-h-screen border-r border-slate-200">
+    <div
+      className={`w-48 min-h-screen border-r border-slate-200 ${robotoMono.className}`}
+    >
       <h1 className="text-2xl">SideBar</h1>
       {bars.map((bar) => (
         <div
