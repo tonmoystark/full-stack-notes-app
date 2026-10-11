@@ -27,6 +27,10 @@ const SideBar = () => {
       name: "Create Profile",
       href: "/createProfile",
     },
+    {
+      name: "Create Contact",
+      href: "/createContact",
+    },
   ];
 
   const pathName = usePathname();
