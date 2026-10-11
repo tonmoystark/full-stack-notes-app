@@ -84,7 +84,6 @@ const ContactForm = ({ action }) => {
 
             {/* Submit */}
             <button
-              onClick={() => router.push("/")}
               type="submit"
               className="group flex w-full items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-semibold text-white transition hover:bg-green-500 active:scale-[0.98]"
             >

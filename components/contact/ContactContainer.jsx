@@ -5,7 +5,9 @@ import ContactCard from "./ContactCard";
 
 const ContactContainer = async () => {
   await connectDB();
-  const contacts = await contactModel.find().sort({ createdAt: -1 });
+  const contacts = await contactModel.find().sort({ createdAt: -1 }).lean();
+
+  console.log(contacts);
 
   if (contacts.length === 0) {
     return <div className="text-center">No contacts found</div>;
@@ -16,6 +18,7 @@ const ContactContainer = async () => {
       {contacts.map((contact) => (
         <ContactCard
           key={contact._id}
+          id={contact._id}
           name={contact.name}
           email={contact.email}
           message={contact.message}

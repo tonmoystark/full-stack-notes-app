@@ -26,3 +26,13 @@ export async function contactForm(formData) {
   }
   redirect("/");
 }
+
+export async function resolveBtn(id) {
+  try {
+    await connectDB();
+    await contactModel.findByIdAndUpdate(id, { status: "resolved" });
+    revalidatePath("/");
+  } catch (error) {
+    console.log(error);
+  }
+}

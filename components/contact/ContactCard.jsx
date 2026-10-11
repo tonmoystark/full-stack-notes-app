@@ -1,6 +1,7 @@
 import React from "react";
+import ResolveButton from "./ResolveButton";
 
-const ContactCard = ({ name, email, message, status }) => {
+const ContactCard = ({ id, name, email, message, status }) => {
   const isResolved = status?.toLowerCase() === "resolved";
 
   return (
@@ -44,6 +45,9 @@ const ContactCard = ({ name, email, message, status }) => {
         <p className="whitespace-pre-wrap break-words text-sm leading-7 text-slate-300">
           {message}
         </p>
+      </div>
+      <div className={`${isResolved ? "hidden" : "block"} my-4`}>
+        <ResolveButton id={id} status={status} />
       </div>
     </div>
   );
