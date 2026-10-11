@@ -1,3 +1,4 @@
+import ContactContainer from "@/components/contact/ContactContainer";
 import NoteContainer from "@/components/notes/NoteContainer";
 import ProfileContainer from "@/components/profiles/ProfileContainer";
 import { connectDB } from "@/lib/db";
@@ -23,6 +24,12 @@ export default async function Home() {
           Profiles App
         </h1>
         <ProfileContainer />
+        <h1
+          className={`text-3xl font-bold text-center my-10 ${satoshi.className}`}
+        >
+          Contacts Dets
+        </h1>
+        <ContactContainer />
       </div>
     </div>
   );
