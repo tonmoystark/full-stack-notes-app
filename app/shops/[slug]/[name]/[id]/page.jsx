@@ -7,7 +7,7 @@ const ShopsSlugNameId = () => {
   const pathName = usePathname();
   console.log(pathName);
 
-  return <div>ShopsSlugNameId {pathName}</div>;
+  return <div>hey using pathname {pathName}</div>;
 };
 
 export default ShopsSlugNameId;
