@@ -3,6 +3,7 @@
 import { useParams, usePathname } from "next/navigation";
 import React from "react";
 
+
 const ShopsPage = () => {
   const params = useParams(); // it will provide empty array. works only on dynamic routes
   const pathName = usePathname();
