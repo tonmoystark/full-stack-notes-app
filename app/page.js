@@ -9,6 +9,8 @@ const satoshi = localFont({ src: "../public/fonts/Satoshi-Variable.ttf" });
 export default async function Home() {
   await connectDB();
 
+  
+
   return (
     <div className="min-h-screen w-full flex bg-gray-900 text-white p-5">
       <div className=" w-full">

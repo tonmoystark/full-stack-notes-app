@@ -19,7 +19,8 @@ const ShopSlugPage = async ({ params }) => {
     <div>
       <h1>
         First i was using useParams here. but now using the meta data as you can
-        see in the tab <span className="text-fuchsia-500">{slug}</span>
+        see in the tab{" "}
+        <span className="text-fuchsia-500">{slug}</span>
       </h1>
     </div>
   );

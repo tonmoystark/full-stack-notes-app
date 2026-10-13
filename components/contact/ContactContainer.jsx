@@ -7,8 +7,6 @@ const ContactContainer = async () => {
   await connectDB();
   const contacts = await contactModel.find().sort({ createdAt: -1 }).lean();
 
-  console.log(contacts);
-
   if (contacts.length === 0) {
     return <div className="text-center">No contacts found</div>;
   }

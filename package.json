@@ -10,6 +10,7 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.104.2",
     "lucide-react": "^1.48.0",
     "mongoose": "^9.10.2",
     "next": "16.3.6",
