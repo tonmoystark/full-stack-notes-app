@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import SideBar from "@/components/SideBar";
+import QueryProviderClient from "@/providers/query-client-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,11 +21,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <NavBar />
-        <div className="flex ">
-          <SideBar />
-          {children}
-        </div>
+        <QueryProviderClient>
+          <NavBar />
+          <div className="flex ">
+            <SideBar />
+            {children}
+          </div>
+        </QueryProviderClient>
       </body>
     </html>
   );

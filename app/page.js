@@ -9,30 +9,29 @@ const satoshi = localFont({ src: "../public/fonts/Satoshi-Variable.ttf" });
 export default async function Home() {
   await connectDB();
 
-  
-
   return (
-    <div className="min-h-screen w-full flex bg-gray-900 text-white p-5">
-      <div className=" w-full">
-        <h1
-          className={`text-3xl font-bold text-center my-10 ${satoshi.className}`}
-        >
-          Notes App
-        </h1>
-        <NoteContainer />
-        <h1
-          className={`text-3xl font-bold text-center my-10 ${satoshi.className}`}
-        >
-          Profiles App
-        </h1>
-        <ProfileContainer />
-        <h1
-          className={`text-3xl font-bold text-center my-10 ${satoshi.className}`}
-        >
-          Contacts Dets
-        </h1>
-        <ContactContainer />
+      <div className="min-h-screen w-full flex bg-gray-900 text-white p-5">
+        <div className=" w-full">
+          <h1
+            className={`text-3xl font-bold text-center my-10 ${satoshi.className}`}
+          >
+            Notes App
+          </h1>
+          <NoteContainer />
+          <h1
+            className={`text-3xl font-bold text-center my-10 ${satoshi.className}`}
+          >
+            Profiles App
+          </h1>
+          <ProfileContainer />
+          <h1
+            className={`text-3xl font-bold text-center my-10 ${satoshi.className}`}
+          >
+            Contacts Dets
+          </h1>
+          <ContactContainer />
+        </div>
       </div>
-    </div>
+
   );
 }
