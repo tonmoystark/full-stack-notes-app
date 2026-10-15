@@ -3,6 +3,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import SideBar from "@/components/SideBar";
 import QueryProviderClient from "@/providers/query-client-provider";
+import { Toaster } from "@/components/ui/toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,6 +28,8 @@ export default function RootLayout({ children }) {
             <SideBar />
             {children}
           </div>
+
+          <Toaster />
         </QueryProviderClient>
       </body>
     </html>

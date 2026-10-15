@@ -40,7 +40,7 @@ const SideBar = () => {
   const pathName = usePathname();
   return (
     <div
-      className={`w-48 min-h-screen border-r border-slate-200 ${robotoMono.className}`}
+      className={`w-48 min-h-screen border-r bg-slate-700 border-slate-200 ${robotoMono.className}`}
     >
       <h1 className="text-2xl">SideBar</h1>
       {bars.map((bar) => (
