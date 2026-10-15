@@ -1,6 +1,33 @@
+"use server";
+
 import { connectDB } from "@/lib/db";
 import { todoModel } from "@/lib/models/todos";
+import { todoSchema } from "../schemas/todoSchema";
 
 export async function addTodo(data) {
-  connectDB();
+  const validateFields = todoSchema.safeParse(data);
+
+  if (!validateFields.success) {
+    return {
+      success: false,
+      message: "Please fill all the fields",
+      errors: validation.error.flatten().fieldErrors,
+    };
+  }
+
+  try {
+    await connectDB();
+    const createdTodo = await todoModel.create(validateFields.data);
+    return {
+      success: true,
+      message: "Todo created successfully",
+      createdTodo: JSON.parse(JSON.stringify(createdTodo)),
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Failed to create todo",
+    };
+  }
 }

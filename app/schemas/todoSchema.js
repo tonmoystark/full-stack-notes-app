@@ -6,5 +6,13 @@ export const todoSchema = z.object({
     .min(3, { message: "Title must be at least 3 characters" })
     .max(100, { message: "Title must be at most 100 characters" })
     .trim(),
-  completed: z.boolean().default(false).optional(),
+});
+
+export const todoActionSchema = z.object({
+  title: z
+    .string()
+    .min(3, { message: "Title must be at least 3 characters" })
+    .max(100, { message: "Title must be at most 100 characters" })
+    .trim(),
+  completed: z.boolean().optional(),
 });

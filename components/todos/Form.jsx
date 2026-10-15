@@ -4,15 +4,32 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Plus } from "lucide-react";
 import { toast } from "../ui/toast";
+import { useMutation } from "@tanstack/react-query";
+import { addTodo } from "@/app/actions/todo";
 
 const Form = () => {
   const [title, setTitle] = useState("");
 
+  const mutation = useMutation({
+    mutationFn: (data) => addTodo(data),
+    onSuccess: () => {
+      toast.add({
+        title: "Event created",
+      });
+      setTitle("");
+    },
+    onError: (error) => {
+      console.log(error);
+      toast.add({
+        title: "Something went wrong",
+        variant: "destructive",
+      });
+    },
+  });
+
   const submitHandler = (e) => {
     e.preventDefault();
-    toast.add({
-      title: "Event created",
-    });
+    mutation.mutate({ title });
   };
 
   return (
@@ -27,10 +44,11 @@ const Form = () => {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Add a todo"
           className="w-full"
+          disabled={mutation.isPending}
         />
         <Button type="submit">
           {" "}
-          <Plus size={20} /> Add
+          <Plus size={20} /> {mutation.isPending ? "Adding..." : "Add"}
         </Button>
       </form>
     </div>
