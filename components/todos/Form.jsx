@@ -4,11 +4,13 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Plus } from "lucide-react";
 import { toast } from "../ui/toast";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addTodo } from "@/app/actions/todo";
 
 const Form = () => {
   const [title, setTitle] = useState("");
+
+  const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (data) => addTodo(data),
@@ -16,6 +18,7 @@ const Form = () => {
       toast.add({
         title: "Event created",
       });
+      queryClient.invalidateQueries(["todos"]);
       setTitle("");
     },
     onError: (error) => {

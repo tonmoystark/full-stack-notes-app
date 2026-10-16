@@ -31,3 +31,17 @@ export async function addTodo(data) {
     };
   }
 }
+
+export async function getTodo() {
+  try {
+    await connectDB();
+    const allTodos = await todoModel.find().sort({ createdAt: -1 });
+    return JSON.parse(JSON.stringify(allTodos));
+  } catch (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Failed to fetch todos",
+    };
+  }
+}
