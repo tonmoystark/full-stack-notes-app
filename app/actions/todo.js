@@ -45,3 +45,27 @@ export async function getTodo() {
     };
   }
 }
+
+export async function toggleTodo(id, completed) {
+  try {
+    await connectDB();
+    const updatedTodo = await todoModel.findByIdAndUpdate(
+      id,
+      { completed },
+      { new: true },
+    );
+    return JSON.parse(JSON.stringify(updatedTodo));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function deleteTodo(id) {
+  try {
+    await connectDB();
+    const deletedTodo = await todoModel.findByIdAndDelete(id);
+    return JSON.parse(JSON.stringify(deletedTodo));
+  } catch (error) {
+    console.log(error);
+  }
+}

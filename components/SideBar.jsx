@@ -35,6 +35,10 @@ const SideBar = () => {
       name: "Random Quotes",
       href: "/freeApis",
     },
+    {
+      name: "Todos",
+      href: "/todos",
+    },
   ];
 
   const pathName = usePathname();
